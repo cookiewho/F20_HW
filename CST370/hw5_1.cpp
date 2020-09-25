@@ -1,5 +1,5 @@
 /*
- * Title: hw 5_2.cpp
+ * Title: hw 5_1.cpp
  * Abstract: This program takes in a size and list of that saize, and outputs the partitioned form of that list,
  *           where we define partitioned as seperating the negative numbers from the positive numbers.
  * Author: David Gaeta
@@ -22,8 +22,8 @@ int main(){
     getline(cin, inp);
     istringstream input(inp);
     
-    for(int z = 0; z < size; z++){//Take in list
-        input>>temp;
+    for(int z = 0; z < size; z++){ //input
+        input >> temp;
         nums1[z] = (temp);
         nums2[z] = (temp);
     }
@@ -49,14 +49,14 @@ int main(){
     }
     cout << endl;
     for(int x = 0; x < size; x++){ //method 2
-        if(nums2[x] >0){
-            int y = x;
-            while(y < size){
-                if(nums2[y] < 0){
-                    temp = nums2[y];
-                    nums2[y] = nums2[x];
-                    nums2[x] = temp;
-                    break;
+        if(nums2[x] >0){                        //   |`-.._____..-'|
+            int y = x;                          //   :  > .  ,  <  :
+            while(y < size){                    //   `./ __`' __ \,'
+                if(nums2[y] < 0){               //     |(|_) (|_) |
+                    temp = nums2[y];            //     ; _  .  __ :
+                    nums2[y] = nums2[x];        //     `.,' - `-.,'
+                    nums2[x] = temp;            //       `, `_ .'
+                    break;                      //      hehe kitty
                 }
                 y++;
             }
