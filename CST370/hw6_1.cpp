@@ -21,7 +21,7 @@ int main(){
     map <string, int> city_idx;
     map <string, int> answer;
     queue<int> q;
-    int vertecies, edges, hops;
+    int vertecies, edges, hops, hops_taken = 0;
     cin >> vertecies;
     string city;
     for(int x = 0; x < vertecies; x++){ //take in city names and assign inx to dictionary
@@ -35,6 +35,7 @@ int main(){
     // }
     //END OF DEBUGGING FOR LOOP
     graph.resize(vertecies);
+    vector<int> visited(graph.size(), 0);
     cin >> edges;
     string from, to;
     for(int z = 0; z < edges; z++){
@@ -58,8 +59,6 @@ int main(){
     //     cout << endl;
     // }
     //END OF DEBUGGING
-    vector<int> visited(graph.size(), 0);
-    int hops_taken = 0;
     q.push(curr);
     visited[curr]=1;
     if(hops > 0){answer[idx_city[curr]] = 0;}// add starting local to ans dict
@@ -81,7 +80,6 @@ int main(){
                 }
             }
         }
-        hops_taken+=1;
         // cout <<"Hopes taken: "<< hops_taken<< endl;
     }
     // cout << "OUR ANSWER DICT" << endl;
